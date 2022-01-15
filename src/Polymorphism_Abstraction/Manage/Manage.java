@@ -177,34 +177,27 @@ public class Manage implements IManage{
     @Override
     public void tinhTienCongChoMoiGiangVien(){
         System.out.println("Ma\tGiang Vien \t\t\t Tong so tien cong");
-        int[] ma = new int[sql];
-        int soGv=0;
-        float[] tienLuong= new float[sql];
-        for(int i=0;i<sql;i++){
-            boolean check=true;
-            for(int j=0;j<soGv;j++){
-                if(ma[j] == keKhaiGiangDays[i].getGiangVien().getMa()){
-                    check=false;
-                    break;
+
+        TienCong tienCong= (ma1, arr) -> {
+            float tien=0;
+            for (int i=0;i< arr.length;i++){
+                if(arr[i].getGiangVien().getMa() == ma1){
+                    tien+=(float) (keKhaiGiangDays[i].getSoLop()*keKhaiGiangDays[i].getMonHoc().getMucKinhPhi()
+                            *(keKhaiGiangDays[i].getMonHoc().getSoTietLyThuyet()
+                            +(keKhaiGiangDays[i].getMonHoc().getTongSoTiet()-keKhaiGiangDays[i].getMonHoc().getSoTietLyThuyet())*0.7));
                 }
             }
-            if(check){
-                ma[soGv++]=keKhaiGiangDays[i].getGiangVien().getMa();
-            }
+            return tien;
+        };
+        int[] ma=tienCong.groupingByMa(keKhaiGiangDays,sql);
+
+        float[] tienLuong= new float[ma.length];
+
+        for (int i=0;i<ma.length;i++){
+            tienLuong[i]=tienCong.tinhTien(ma[i],keKhaiGiangDays);
         }
 
-        for (int i=0;i<soGv;i++){
-            float tien=0;
-            for (int j=0;j<sql;j++){
-                if(keKhaiGiangDays[j].getGiangVien().getMa() == ma[i]){
-                    tien+=(float) (keKhaiGiangDays[j].getSoLop()*keKhaiGiangDays[j].getMonHoc().getMucKinhPhi()
-                            *(keKhaiGiangDays[j].getMonHoc().getSoTietLyThuyet()
-                            +(keKhaiGiangDays[j].getMonHoc().getTongSoTiet()-keKhaiGiangDays[j].getMonHoc().getSoTietLyThuyet())*0.7));
-                }
-                tienLuong[i]=tien;
-            }
-        }
-        for(int i=0;i<soGv;i++){
+        for(int i=0;i<ma.length;i++){
             System.out.println(ma[i]+"  "+getGvByMa(ma[i]).getTen()+"\t"+tienLuong[i]);
         }
     }
