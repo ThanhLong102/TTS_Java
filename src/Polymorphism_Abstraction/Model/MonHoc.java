@@ -7,7 +7,7 @@ public class MonHoc {
 
     private int tongSoTiet,soTietLyThuyet,mucKinhPhi;
 
-    private static int sma=10000;
+    private static int sma=100;
 
     public MonHoc( String ten, int tongSoTiet, int soTietLyThuyet, int mucKinhPhi) {
         this.ma = sma++;

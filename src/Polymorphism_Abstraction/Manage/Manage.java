@@ -178,7 +178,7 @@ public class Manage implements IManage{
     public void tinhTienCongChoMoiGiangVien(){
         System.out.println("Ma\tGiang Vien \t\t\t Tong so tien cong");
 
-        TienCong tienCong= (ma1, arr) -> {
+        TienCong<KeKhaiGiangDay> tienCong= (ma1, arr) -> {
             float tien=0;
             for (int i=0;i< arr.length;i++){
                 if(arr[i].getGiangVien().getMa() == ma1){

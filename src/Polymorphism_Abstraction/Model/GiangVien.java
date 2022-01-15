@@ -5,7 +5,7 @@ public class GiangVien {
 
     private String ten,diaChi,sdt,trinhdo;
 
-    private static int sma=10000;
+    private static int sma=100;
 
     public GiangVien(String ten, String diaChi, String sdt, String trinhdo) {
         this.ma = sma++;

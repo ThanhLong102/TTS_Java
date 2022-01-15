@@ -3,8 +3,8 @@ package Polymorphism_Abstraction.Manage;
 import Polymorphism_Abstraction.Model.KeKhaiGiangDay;
 
 @FunctionalInterface
-public interface TienCong {
-    float tinhTien(int ma, KeKhaiGiangDay[] arr);
+public interface TienCong<T> {
+    float tinhTien(int ma, T[] arr);
 
     default int[] groupingByMa(KeKhaiGiangDay[] arr,int sql){
         int[] ma = new int[sql];
