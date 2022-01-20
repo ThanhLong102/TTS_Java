@@ -13,9 +13,9 @@ public class Manage implements Manageable {
     private int sSv=0;
     private int sm=0;
     private int sql=0;
-    private final String fm = "MON.dat";
-    private final String fsv = "SV.dat";
-    private final String fbD = "BD.dat";
+    private final String fm = "./src/Exception_JavaIO/Exception/MON.dat";
+    private final String fsv = "./src/Exception_JavaIO/Exception/SV.dat";
+    private final String fbD = "./src/Exception_JavaIO/Exception/BD.dat";
 
     private static Manage Instance;
 
