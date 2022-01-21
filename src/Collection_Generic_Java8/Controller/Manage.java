@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class Manage implements Manageable {
     private final Scanner sc = new Scanner(System.in);
     private final String flx = "./src/Collection_Generic_Java8/Exception_File/LAIXE.dat";
-    private final String ft = "./src/Collection_Generic_Java8/Exception_File/TUYEB.dat";
+    private final String ft = "./src/Collection_Generic_Java8/Exception_File/TUYEN.dat";
     private final String fpc = "./src/Collection_Generic_Java8/Exception_File/PHANCONG.dat";
     private List<LaiXe> laiXeList;
     private List<Tuyen> tuyenList;
@@ -71,6 +71,9 @@ public class Manage implements Manageable {
 
             loadLaiXe();
 
+            if(laiXeList.size()>0)
+                LaiXe.setSma(laiXeList.get(laiXeList.size()-1).getMa()+1);
+
             LaiXe laiXe = new LaiXe(ten, dc, soDt, loai);
             laiXeList.add(laiXe);
 
@@ -98,6 +101,8 @@ public class Manage implements Manageable {
             int dd = Integer.parseInt(sc.nextLine());
 
             loadTuyen();
+            if(tuyenList.size()>0)
+                Tuyen.setSma(tuyenList.get(tuyenList.size()-1).getMa()+1);
 
             Tuyen tuyen = new Tuyen(kc, dd);
             tuyenList.add(tuyen);
@@ -168,6 +173,7 @@ public class Manage implements Manageable {
             }
 
             loadPhanCong();
+
             PhanCong phanCong = new PhanCong(getLaiXecByMa(maLx), getTuyenByMa(maT), luot);
             phanCongList.add(phanCong);
 
