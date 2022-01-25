@@ -5,11 +5,11 @@ public class MonHoc {
 
     private String ten;
 
-    private int tongSoTiet,soTietLyThuyet,mucKinhPhi;
+    private int tongSoTiet, soTietLyThuyet, mucKinhPhi;
 
-    private static int sma=100;
+    private static int sma = 100;
 
-    public MonHoc( String ten, int tongSoTiet, int soTietLyThuyet, int mucKinhPhi) {
+    public MonHoc(String ten, int tongSoTiet, int soTietLyThuyet, int mucKinhPhi) {
         this.ma = sma++;
         this.ten = ten;
         this.tongSoTiet = tongSoTiet;

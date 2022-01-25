@@ -8,9 +8,9 @@ import java.util.Scanner;
 
 public class Menu {
     public static void main(String[] args) {
-        IManage manage= Manage.getInstance();
-        boolean check=true;
-        while (check){
+        IManage manage = Manage.getInstance();
+        boolean check = true;
+        while (check) {
             while (check) {
                 System.out.println("------MENU-------");
                 System.out.println("0:Thoát");
@@ -25,9 +25,11 @@ public class Menu {
                 Scanner in = new Scanner(System.in);
                 chon = Integer.parseInt(in.nextLine());
                 switch (chon) {
-                    case 0:check=false;
+                    case 0:
+                        check = false;
                         break;
-                    case 1: manage.nhapMonHoc();
+                    case 1:
+                        manage.nhapMonHoc();
                         break;
                     case 2:
                         manage.nhapGiangVien();
