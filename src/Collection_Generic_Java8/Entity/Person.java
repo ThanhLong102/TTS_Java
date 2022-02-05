@@ -1,4 +1,4 @@
-package Exception_JavaIO.Entity;
+package Collection_Generic_Java8.Entity;
 
 import java.io.Serializable;
 import java.util.Scanner;
@@ -7,6 +7,7 @@ public class Person implements Serializable {
     protected String fullName;
     protected String address;
     protected String phone;
+
 
     public String getFullName() {
         return fullName;
@@ -33,18 +34,18 @@ public class Person implements Serializable {
     }
 
     public void inputInfo() {
-        System.out.print("Nhập tên sinh viên: ");
+        System.out.print("Nhập tên lái xe: ");
         this.fullName = new Scanner(System.in).nextLine();
         System.out.print("Nhập tên địa chỉ: ");
         this.address = new Scanner(System.in).nextLine();
         intputPhoneNumber();
     }
 
-    public void intputPhoneNumber() {
+    public void intputPhoneNumber(){
         System.out.print("Nhập số dt : ");
         String phoneNumber = "";
         do {
-            phoneNumber = new Scanner(System.in).nextLine();
+            phoneNumber=new Scanner(System.in).nextLine();
             if (phoneNumber.matches("\\d+")) {
                 this.phone = phoneNumber;
                 break;
@@ -57,4 +58,5 @@ public class Person implements Serializable {
     public String toString() {
         return "Person{" + "fullName='" + fullName + '\'' + ", address='" + address + '\'' + ", phone='" + phone + '\'' + '}';
     }
+
 }

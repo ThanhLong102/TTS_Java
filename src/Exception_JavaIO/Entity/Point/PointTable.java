@@ -38,8 +38,8 @@ public class PointTable implements Serializable {
         for (SubjectPoint subjectPoint : subjectPoints) {
             if (DataUtil.isNullOrEmpty(subjectPoint))
                 break;
-            sum += subjectPoint.getPoint();
-            count++;
+            sum += subjectPoint.getPoint()*subjectPoint.getSubject().getCurriculumNumber();
+            count+=subjectPoint.getSubject().getCurriculumNumber();
         }
         if (count == 0)
             return 0;

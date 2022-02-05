@@ -54,7 +54,7 @@ public class SubjectService {
 
     public Subject findSubjectById(int subjectId) {
         for (int i = 0; i < Menu.subjects.length; i++) {
-            if(DataUtil.isNullOrEmpty(Menu.subjects[i]))
+            if (DataUtil.isNullOrEmpty(Menu.subjects[i]))
                 return null;
             if (subjectId == Menu.subjects[i].getId()) {
                 return Menu.subjects[i];
@@ -63,7 +63,7 @@ public class SubjectService {
         return null;
     }
 
-    public void initializeSubjectData(){
+    public void initializeSubjectData() {
         Object subjectFromFile = Menu.fileUtil.readDataFromFile(SubjectService.SUBJECT_DATA_FILE);
         if (!DataUtil.isNullOrEmpty(subjectFromFile)) {
             Subject[] copySubjects = (Subject[]) subjectFromFile;

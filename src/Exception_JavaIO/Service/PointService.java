@@ -13,14 +13,14 @@ import java.util.Scanner;
 public class PointService {
     public static final String POINT_DATA_FILE = "src/Exception_JavaIO/Util/File/pointTable.dat";
 
-    private static boolean isNullOfEmptyTeacherOrSubject() {
+    private static boolean isNullOfEmptyStudentOrSubject() {
         return Menu.students.length == 0 || Menu.subjects.length == 0;
     }
 
     public void creatPointTable() {
 
         // Thêm 1 bảng điểm gốm nhiều môn học cho 1 sv
-        if (isNullOfEmptyTeacherOrSubject()) {
+        if (isNullOfEmptyStudentOrSubject()) {
             System.out.println("Bạn cần nhập thông tin sinh viên và môn học trước khi thêm bảng điểm.");
             return;
         }
@@ -175,7 +175,7 @@ public class PointService {
             return -1;
         SubjectPoint[] subjectPoints = pointTable.getSubjectPoints();
         for (int i = 0; i < subjectPoints.length; i++) {
-            if(DataUtil.isNullOrEmpty(subjectPoints[i]))
+            if (DataUtil.isNullOrEmpty(subjectPoints[i]))
                 return -1;
             if (subjectPoints[i].getSubject().getId() == subjectId)
                 return i;
@@ -185,7 +185,7 @@ public class PointService {
 
     public PointTable findPointTable(int studentId) {
         for (int i = 0; i < Menu.pointTables.length; i++) {
-            if(DataUtil.isNullOrEmpty(Menu.pointTables[i]))
+            if (DataUtil.isNullOrEmpty(Menu.pointTables[i]))
                 return null;
             if (Menu.pointTables[i].getStudent().getId() == studentId) {
                 return Menu.pointTables[i];
@@ -196,7 +196,7 @@ public class PointService {
 
     public int findIndexPointTableExisted(int studentId) {
         for (int i = 0; i < Menu.pointTables.length; i++) {
-            if(DataUtil.isNullOrEmpty(Menu.pointTables[i]))
+            if (DataUtil.isNullOrEmpty(Menu.pointTables[i]))
                 return -1;
             if (Menu.pointTables[i].getStudent().getId() == studentId) {
                 return i;
@@ -293,7 +293,7 @@ public class PointService {
         }
     }
 
-    public void initializePointTableData(){
+    public void initializePointTableData() {
         Object pointTableFromFile = Menu.fileUtil.readDataFromFile(PointService.POINT_DATA_FILE);
         if (!DataUtil.isNullOrEmpty(pointTableFromFile)) {
             PointTable[] copyPointTables = (PointTable[]) pointTableFromFile;

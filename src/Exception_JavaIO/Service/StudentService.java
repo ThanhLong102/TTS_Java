@@ -53,7 +53,7 @@ public class StudentService {
 
     public Student findStudentById(int studentId) {
         for (int i = 0; i < Menu.students.length; i++) {
-            if(DataUtil.isNullOrEmpty(Menu.students[i]))
+            if (DataUtil.isNullOrEmpty(Menu.students[i]))
                 return null;
             if (studentId == Menu.students[i].getId()) {
                 return Menu.students[i];
@@ -62,14 +62,14 @@ public class StudentService {
         return null;
     }
 
-    public void initializeStudentData(){
+    public void initializeStudentData() {
         Object studentFromFile = Menu.fileUtil.readDataFromFile(StudentService.STUDENT_DATA_FILE);
         if (!DataUtil.isNullOrEmpty(studentFromFile)) {
             Student[] copyStudents = (Student[]) studentFromFile;
             System.arraycopy(copyStudents, 0, Menu.students, 0, copyStudents.length);
             for (int i = 0; i < copyStudents.length; i++) {
-                if(DataUtil.isNullOrEmpty(copyStudents[i])){
-                    Student.AUTO_ID = copyStudents[i-1].getId() + 1;
+                if (DataUtil.isNullOrEmpty(copyStudents[i])) {
+                    Student.AUTO_ID = copyStudents[i - 1].getId() + 1;
                     break;
                 }
             }
