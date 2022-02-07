@@ -6,6 +6,7 @@ public class DataUtil {
     }
 
     public static boolean isNullOrEmptyArray(Object[] obj) {
-        return obj == null && obj.length == 0;
+        return obj == null && obj.length == 0 ;
     }
+
 }

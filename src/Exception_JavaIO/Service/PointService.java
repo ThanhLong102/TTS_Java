@@ -14,7 +14,7 @@ public class PointService {
     public static final String POINT_DATA_FILE = "src/Exception_JavaIO/Util/File/pointTable.dat";
 
     private static boolean isNullOfEmptyStudentOrSubject() {
-        return Menu.students.length == 0 || Menu.subjects.length == 0;
+        return Menu.students[0] == null || Menu.subjects[0] == null;
     }
 
     public void creatPointTable() {

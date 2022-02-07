@@ -15,9 +15,8 @@ public class TeachingService {
     public static final String TEACHING_DATA_FILE = "src/Polymorphism_Abstraction/Util/File/teaching.dat";
 
     private static boolean isNullOfEmptyTeacherOrSubject() {
-        return Menu.teachers.length == 0 || Menu.subjects.length == 0;
+        return Menu.teachers[0] == null || Menu.subjects[0] == null;
     }
-
 
     public void createTeaching() {
         if (isNullOfEmptyTeacherOrSubject()) {
