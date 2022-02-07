@@ -4,7 +4,6 @@ import Exception_JavaIO.Entity.Student;
 import Exception_JavaIO.Util.DataUtil;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 public class PointTable implements Serializable {
     private Student student;
@@ -46,11 +45,22 @@ public class PointTable implements Serializable {
         else return sum / count;
     }
 
+    public String toStringArray(){
+        String arrayToString="[";
+        for (int i = 0; i < subjectPoints.length; i++) {
+            if(DataUtil.isNullOrEmpty(subjectPoints[i]))
+                break;
+            arrayToString+=subjectPoints[i].toString();
+        }
+        arrayToString+="]";
+        return arrayToString;
+    }
+
     @Override
     public String toString() {
         return "PointTable{" +
                 "student=" + student +
-                ", subjectPoints=" + Arrays.toString(subjectPoints) +
+                ", subjectPoints=" + toStringArray() +
                 '}';
     }
 }
