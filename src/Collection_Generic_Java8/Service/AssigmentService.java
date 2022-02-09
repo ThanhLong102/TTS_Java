@@ -38,7 +38,7 @@ public class AssigmentService {
             // Thêm mới
             List<Assignment> assignmentList = new ArrayList<>();
             createAssignmentTableList(assignmentList, lineNumber, driver);
-            Menu.assignmentTableList.add(new AssignmentTable(driver,assignmentList));
+            Menu.assignmentTableList.add(new AssignmentTable(driver, assignmentList));
         } else {
             // update bảng phân công đã có trong hệ thống
             updateOrAddAssignmentTableExits(indexAgssignmentTableExits, lineNumber, driver);
@@ -124,10 +124,10 @@ public class AssigmentService {
         do {
             try {
                 lineNumber = new Scanner(System.in).nextInt();
-                if (lineNumber > 0) {
+                if (lineNumber > 0 && lineNumber <= Menu.lineList.size()) {
                     break;
                 }
-                System.out.print("Số lượng tuyến là số nguyên, vui lòng nhập lại: ");
+                System.out.print("Số lượng tuyến là số nguyên và không vượt qua số tuyến có sẵn, vui lòng nhập lại: ");
             } catch (InputMismatchException ex) {
                 System.out.print("Số lượng tuyến là một số nguyên, vui lòng nhập lại: ");
             }
@@ -162,7 +162,7 @@ public class AssigmentService {
     }
 
     private int inputTurnNumber(Line line) {
-        System.out.print("Nhập số lượt của tuyến " + line.getId()+" :");
+        System.out.print("Nhập số lượt của tuyến " + line.getId() + " :");
         int turnNumber = -1;
         do {
             try {

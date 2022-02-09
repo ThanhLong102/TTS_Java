@@ -50,7 +50,6 @@ public class DriverService {
         if (driverList != null) {
             Driver.AUTO_ID = driverList.get(driverList.size() - 1).getId() + 1;
             Menu.driverList = driverList;
-            System.out.println(Menu.driverList.size());
         } else {
             Menu.driverList = new ArrayList<>();
         }
